@@ -4,6 +4,8 @@ const {green, red} = require('chalk')
 const seed = async () => {
   await db.sync({force: true})
 
+
+  
   // seed your database here!
 
   console.log(green('Seeding success!'))

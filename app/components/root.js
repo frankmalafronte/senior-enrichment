@@ -1,14 +1,23 @@
 import React from 'react'
+import StudentList from './StudentList.jsx'
+import {Route, Link, Switch} from 'react-router-dom'
+import CampusList from './CampusList.jsx'
+
+
+
 
 const Root = () => {
   return (
+    
     <div>
       <nav>
         Welcome!
+        <Link to = '/students'>Students</Link>
+        <Link to = '/campuses'>Campuses</Link>
       </nav>
       <main>
-        <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
-        <p>This seems like a nice place to get started with some Routes!</p>
+        <Route exact path = "/students" component = {StudentList} />
+        <Route exact path = "/campuses" component = {CampusList} />
       </main>
     </div>
   )
