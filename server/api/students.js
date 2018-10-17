@@ -13,4 +13,15 @@ studentsRouter.get('/', async function (req, res, next) {
   }
     })
 
+    studentsRouter.get('/:id', async function (req,res,next){
+        try {
+            const student = await Student.findById(req.params.id)
+               res.json(student)
+           } catch (err){
+               next(err)
+           }
+             })
+         
+
+
     module.exports = studentsRouter
