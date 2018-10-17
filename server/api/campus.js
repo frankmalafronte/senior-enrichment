@@ -27,6 +27,17 @@ try {
            next(err)
        }
          })
+         campusRouter.post('/', async (req, res, next) => {
+          try {
+            const campusFromDb = await Campus.create({
+              name: req.body.name,
+              address: req.body.address
+            });
+            res.json(campusFromDb);
+          } catch (err) {
+            next(err);
+          }
+        });
 
 module.exports = campusRouter
 

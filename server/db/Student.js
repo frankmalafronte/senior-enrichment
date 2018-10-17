@@ -1,37 +1,13 @@
+const db = require('./database');
+const Sequelize = require('sequelize');
 
-const db = require('./database.js')
-const SEQUELIZE = require('sequelize') 
+const Students = db.define('student', {
+    firstName: { type: Sequelize.STRING, allowNull: false },
+    lastName: { type: Sequelize.STRING, allowNull: false },
+    email: { type: Sequelize.STRING, isEmail: true },
+    imageUrl: { type: Sequelize.TEXT, defaultvalue: '/' },
+    gpa: { type: Sequelize.DECIMAL }
 
-
-
-
-const Student = db.define('students',{
-    firstName:{
-        type: SEQUELIZE.STRING,
-        allowNull: false
-    },
-    lastName: {
-        type: SEQUELIZE.STRING,
-        allowNull: false
-    },
-    email: {
-        type: SEQUELIZE.STRING,
-        allowNull: false,
-        isEmail: true
-    },
-    // gpa: {
-    //     type: SEQUELIZE.NUMBER,
-    //     validate:{
-    //         min: 0, 
-    //         max:4
-    //     }
-    
-    imageUrl: {
-        type: SEQUELIZE.STRING,
-        defaultValue: null
-    }
 })
 
-
-
-module.exports = Student
+module.exports = Students

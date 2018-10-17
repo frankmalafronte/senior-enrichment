@@ -6,8 +6,8 @@ const RECEIVED_CAMPUSES = 'RECEIVED_CAMPUSES';
 const RECEIVED_CAMPUS = 'RECEIVED_CAMPUS'
 
 export const receiveCampuses = campuses => ({ type: RECEIVED_CAMPUSES, payload: campuses });
-
-export const receiveCampus = campus => ({type:RECEIVED_CAMPUS, payload:campus})
+export const addCampus = newCampus => ({type: ADD_CAMPUS, payload: newCampus})
+export const receiveCampus = campus => ({type: RECEIVED_CAMPUS, payload: campus})
 
 
 export const fetchCampuses = () => async dispatch => {
@@ -23,17 +23,25 @@ export const fetchCampus = (id) => async dispatch => {
   dispatch(receiveCampus(campusData))
 }
 
-const campusesReducer = (campuses = initialState.campuses, action) => {
+export const makeCampus = (campus) => async dispatch => {
+  const response = await axios.post('api/campus', campus)
+  const campusData = response.data
+  dispatch(addCampus(campusData))
+}
+
+
+
+
+const campusesReducer = (state = initialState.campuses, action) => {
   switch (action.type) {
     case RECEIVED_CAMPUSES:
       return action.payload;
     case ADD_CAMPUS:
-      return [...campuses, action.payload];
-      case RECEIVED_CAMPUS:
-      // return [...campuses.filter(campus => campus.id !== action.payload.id), action.payload]
+    return  [...state, action.payload]
+    case RECEIVED_CAMPUS:
       return action.payload
     default:
-      return campuses;
+      return state;
   }
 }
 

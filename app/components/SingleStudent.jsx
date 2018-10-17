@@ -25,7 +25,7 @@ class SingleStudent extends Component {
         } else {
         return (
             <div>
-            <h3>{student.firstName} {student.lastName} </h3>
+            <h3>Name:{student.firstName} {student.lastName} EMAIL: {student.email} </h3>
             </div>
         )
     }

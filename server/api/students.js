@@ -22,6 +22,19 @@ studentsRouter.get('/', async function (req, res, next) {
            }
              })
          
+    studentsRouter.post('/', async (req, res, next) => {
+        try {
+            const studentFromDb = await Student.create({
+            firstName: req.body.firstName,
+             lastName: req.body.lastName,
+             email: req.body.email
+            });
+                res.json(studentFromDb);
+            } catch (err) {
+                next(err);
+            }
+              });
+              
 
 
     module.exports = studentsRouter
