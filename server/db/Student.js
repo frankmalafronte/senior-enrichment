@@ -6,7 +6,7 @@ const Students = db.define('student', {
     lastName: { type: Sequelize.STRING, allowNull: false },
     email: { type: Sequelize.STRING, isEmail: true },
     imageUrl: { type: Sequelize.TEXT, defaultvalue: '/' },
-    gpa: { type: Sequelize.DECIMAL }
+    gpa: { type: Sequelize.DECIMAL, allowNull: true }
 
 })
 

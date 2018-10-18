@@ -44,19 +44,21 @@ studentsRouter.get('/', async function (req, res, next) {
                 }
               });
               
-            //   studentsRouter.put('/:id', async (req, res, next) => {
-            //     try {
-            //       const catFromDb = await Student.findById(req.params.id)
-            //       await catFromDb.update({
-            //         name: req.body.name || catFromDb.name,
-            //         imageURL: req.body.imageURL || catFromDb.imageURL,
-            //       })
-              
-            //       res.json(catFromDb);
-            //     } catch (err) {
-            //       next(err);
-            //     }
-            //   });     
+studentsRouter.put('/:id', async (req, res, next) => {
+    try {
+        const student = await Student.findById(req.params.id)
+        console.log(student)
+        await student.update({
+        firstName: req.body.firstName, 
+        lastName: req.body.lastName,
+        email: req.body.email
+        })
+    
+        res.json(student);
+    } catch (err) {
+        next(err);
+    }
+});     
 
               
 

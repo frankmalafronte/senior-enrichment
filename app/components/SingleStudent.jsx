@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { fetchStudent} from '../reducers/studentReducer'
 import {connect} from 'react-redux'
+import EditStudent from './EditStudent'
 
 
 // const SingleStudent = () =>{ 
@@ -26,6 +27,7 @@ class SingleStudent extends Component {
             <div>
             <h3>Name:{student.firstName} {student.lastName} EMAIL: {student.email} </h3>
             <p> <img src={student.imageUrl} style={{ width: 370, height: 220 }} /> </p>
+            <EditStudent />
              </div>
         )
     }

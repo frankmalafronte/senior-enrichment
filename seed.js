@@ -13,7 +13,7 @@ const students =[
     lastName: "Johnson",
     imageUrl:
       'http://animalsadda.com/wp-content/uploads/2015/03/Grumpy-Cat-5.jpg',
-      gpa: 3.3,
+      gpa: 3,
       email: "grumpyCat@aol.com"
   },
   {
@@ -21,7 +21,7 @@ const students =[
     lastName: 'Cat',
     imageUrl:
       'http://media.boingboing.net/wp-content/uploads/2017/03/surprised-cat-04.jpg',
-      gpa: 2.5,
+      gpa: 2,
       email: "scardyCat@gmail.com"
 
   },
@@ -31,7 +31,7 @@ const students =[
     imageUrl:
       'https://pavma.files.wordpress.com/2014/09/istock_000005420886medium.jpg',
       email:'GT@gmail.com',
-      gpa: 4.0
+      gpa: 4
   }]
 
 
