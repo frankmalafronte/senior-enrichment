@@ -4,7 +4,6 @@ const Student = require('../db/Student')
 const studentsRouter = require('express').Router()
 
 studentsRouter.get('/', async function (req, res, next) {
-  console.log("hit students router")
   try {
    const allStudents = await Student.findAll()
       res.json(allStudents)
@@ -34,6 +33,31 @@ studentsRouter.get('/', async function (req, res, next) {
                 next(err);
             }
               });
+            studentsRouter.delete('/:id', async function  (req, res, next)  {
+                try {
+                  const studentToDestroy = await Student.findById(req.params.id)
+                  await studentToDestroy.destroy()
+              
+                  res.json(studentToDestroy);
+                } catch (err) {
+                  next(err);
+                }
+              });
+              
+            //   studentsRouter.put('/:id', async (req, res, next) => {
+            //     try {
+            //       const catFromDb = await Student.findById(req.params.id)
+            //       await catFromDb.update({
+            //         name: req.body.name || catFromDb.name,
+            //         imageURL: req.body.imageURL || catFromDb.imageURL,
+            //       })
+              
+            //       res.json(catFromDb);
+            //     } catch (err) {
+            //       next(err);
+            //     }
+            //   });     
+
               
 
 

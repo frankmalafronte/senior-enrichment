@@ -19,7 +19,6 @@ try {
 
 
   campusRouter.get('/:id', async function (req,res,next){
-    console.log("hit the route")
     try {
         const campus = await Campus.findById(req.params.id)
            res.json(campus)
@@ -34,6 +33,17 @@ try {
               address: req.body.address
             });
             res.json(campusFromDb);
+          } catch (err) {
+            next(err);
+          }
+        });
+
+        campusRouter.delete('/:id', async function  (req, res, next)  {
+          try {
+            const campusToDestroy = await Campus.findById(req.params.id)
+            await campusToDestroy.destroy()
+        
+            res.json(campusToDestroy);
           } catch (err) {
             next(err);
           }

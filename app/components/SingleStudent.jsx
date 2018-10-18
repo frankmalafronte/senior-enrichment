@@ -15,7 +15,6 @@ class SingleStudent extends Component {
         componentDidMount(){
             const studentId = Number(this.props.match.params.id)
             this.props.fetchStudent(studentId)
-          
         }
     render(){
         // console.log(this.props)
@@ -26,7 +25,8 @@ class SingleStudent extends Component {
         return (
             <div>
             <h3>Name:{student.firstName} {student.lastName} EMAIL: {student.email} </h3>
-            </div>
+            <p> <img src={student.imageUrl} style={{ width: 370, height: 220 }} /> </p>
+             </div>
         )
     }
 
